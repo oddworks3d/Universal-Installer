@@ -14,10 +14,12 @@ import json
 default_page = 'render.html'
 
 
+
 def loadConfig():
-    with open('config.json', 'r') as json_file:
-        data = json.load(json_file)
+    with requests.get("https://raw.githubusercontent.com/oddworks3d/Universal-Installer/master/config.json") as url:
+        data = url.json()
         return data
+
 
 
 config = loadConfig()
@@ -97,4 +99,4 @@ class Api():
 api = Api()
 window = webview.create_window('Universal Code Installer', url=f"file://{os.getcwd()}/{default_page}", js_api=api, width=450, height=350,
                                resizable=False)
-webview.start(debug=True)
+webview.start()
