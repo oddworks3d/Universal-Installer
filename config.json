@@ -1,0 +1,16 @@
+{
+  "projects": [
+    {
+      "name": "Portal Gun",
+      "url": "https://github.com/oddworks3d/Portal-Gun/blob/main/main.py?raw=true"
+    },
+    {
+      "name": "Plasma Rifle",
+      "url": "https://github.com/oddworks3d/Plasma-Rifle/blob/main/main.py?raw=true"
+    },
+    {
+      "name": "Plasma Cutter",
+      "url": "https://github.com/oddworks3d/Plasma-Cutter/blob/main/main.py?raw=true"
+    }
+  ]
+}

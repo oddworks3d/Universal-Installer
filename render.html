@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="picnic.css">
+    <link rel="stylesheet" href="style.css"/>
+</head>
+
+<body>
+<div class="modal">
+    <input id="modal_1" type="checkbox"/>
+    <label for="modal_1" class="overlay"></label>
+    <article>
+        <header>
+            <h3>Something went wrong...</h3>
+        </header>
+        <section class="content">
+            Unable to install the code on your Pi Pico. Check that you have selected the correct port and that
+            MicroPython is correctly installed.
+        </section>
+        <section class="content smalltext" id="modal_1_errormsg"></section>
+        <footer>
+            <label for="modal_1" class="button error">
+                Close
+            </label>
+        </footer>
+    </article>
+</div>
+<div class="modal">
+    <input id="modal_2" type="checkbox"/>
+    <label for="modal_2" class="overlay"></label>
+    <article>
+        <header>
+            <h3>Something went wrong...</h3>
+        </header>
+        <section class="content">
+            Unable to install MicroPython on your Pi Pico. Ensure your Pico is in USB Storage Mode by holding
+            BOOTSEL while powering the pico on.
+        </section>
+        <section class="content smalltext" id="modal_2_errormsg"></section>
+        <footer>
+            <label for="modal_2" class="button error">
+                Close
+            </label>
+        </footer>
+    </article>
+</div>
+<div class="center container">
+    <div class="tabs three inner-container">
+        <input id='tab-1' type='radio' name='tabgroupB' checked disabled/>
+        <label class="pseudo button toggle" for="tab-1">Step 1</label>
+        <input id='tab-2' type='radio' name='tabgroupB' disabled>
+        <label class="pseudo button toggle" for="tab-2">Step 2</label>
+        <input id='tab-3' type='radio' name='tabgroupB' disabled>
+        <label class="pseudo button toggle" for="tab-3">Step 3</label>
+        <div class="row padtop">
+            <div id="stage1">
+                <div><span>Welcome to Oddworks Universal Code Installer.</span><br><span>To get started, select
+                            your Pi Pico below:</span>
+                </div>
+                <div>
+                    <div class="icon-input-container" onclick="openFileDialog()">
+                        <input type="text" placeholder="Select Pi Pico Directory..." id="folderpath" disabled
+                               class="icon-input"/>
+                        <div class="icon-container">
+                            <div class="icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                     fill="currentColor" class="bi bi-upload" viewBox="0 0 16 16">
+                                    <path
+                                            d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
+                                    <path
+                                            d="M7.646 1.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 2.707V11.5a.5.5 0 0 1-1 0V2.707L5.354 4.854a.5.5 0 1 1-.708-.708l3-3z"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="smalltext">
+                        <span>
+                            Your Pi Pico must be in USB Mass Storage Mode
+                        </span>
+                </div>
+
+                <div>
+                    <button id="installMPButton" onclick="installMicroPython()" disabled>
+                        Install
+                        MicroPython
+                    </button>
+                    <button id="skip" onclick="step2()">
+                        Skip
+                    </button>
+                </div>
+            </div>
+            <div id="stage1-success" class="hidden">
+                <div id='stage1-success-spinner' class="circle-loader">
+                    <div class="checkmark draw"></div>
+                </div>
+                <div id="stage1-success-text" class="hidden">Sucessfully installed MicroPython</div>
+            </div>
+
+            <div id="stage2">
+                <div>
+                    <span>Select the Project code to install:</span>
+                </div>
+                <div>
+                    <select id="projects">
+
+                    </select>
+                </div>
+                <div class="smalltext">
+                        <span>
+                            Select the project code to install, for more information visit the Github Repo
+                        </span>
+                </div>
+                <div>
+                    <button id="nextStep3" onclick="step3()">
+                        Next
+                    </button>
+                </div>
+            </div>
+
+            <div id="stage3">
+                <div><span>To install the code onto your Pi Pico, select the correct com port from the
+                            following:</span></div>
+                <div>
+                    <select id="ports">
+                    </select>
+                </div>
+                <div>
+                    <button onclick="buildPortList()">Refresh</button>
+                    <button id="installCodeButton" onclick="installCode()" disabled>Install Plasma Rifle
+                        Code
+                    </button>
+                </div>
+            </div>
+
+            <div id="stage3-success" class="hidden">
+                <div id='stage3-success-spinner' class="circle-loader">
+                    <div class="checkmark draw"></div>
+                </div>
+                <div id="stage3-success-text" class="hidden">Installation Successful! You're Done!</div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    var path = ""
+
+    function buildPortList() {
+        document.getElementById("installCodeButton").setAttribute("disabled", "disabled");
+        var ports = pywebview.api.getComPorts().then(function (ports) {
+            var tmp = "<option disabled selected>Choose an option</option>";
+            ports.forEach(function (a) {
+                tmp = tmp + "<option>" + a + "</option>";
+            });
+            document.getElementById("ports").innerHTML = tmp;
+        });
+    }
+
+    function getProjectList() {
+        var projects = pywebview.api.getProjects().then(function (projects) {
+            var tmp = "<option disabled selected>Choose an option</option>";
+            projects.forEach(function (a, i) {
+                tmp = tmp + "<option value='" + i + "'>" + a['name'] + "</option>";
+            });
+            document.getElementById("projects").innerHTML = tmp;
+        })
+    }
+
+    function installCode() {
+        document.getElementById("stage3").classList.add("hidden");
+        document.getElementById("stage3-success").classList.remove("hidden");
+        var port = document.getElementById("ports").value;
+        var project = document.getElementById("projects").value;
+        pywebview.api.installCode(port, project).then(function (a) {
+            if (a == "success") {
+                document.getElementById("stage3-success-spinner").classList.add("load-complete");
+                document.getElementById("stage3-success-spinner").childNodes[1].style.display = "block"
+                document.getElementById("stage3-success-text").classList.remove("hidden");
+            } else {
+                document.getElementById("stage3").classList.remove("hidden");
+                document.getElementById("stage3-success").classList.add("hidden");
+                buildPortList()
+                setTimeout(function () {
+                    document.getElementById('modal_1').checked = true;
+                    document.getElementById('modal_1_errormsg').innerHTML = a
+                }, 100)
+            }
+        })
+    }
+
+    function opened(msg) {
+        if (msg != null) {
+            document.getElementById("folderpath").value = msg
+            document.getElementById("installMPButton").removeAttribute("disabled");
+            path = msg
+        }
+    }
+
+    function step3() {
+        document.getElementById("tab-2").removeAttribute("checked");
+        document.getElementById("tab-3").setAttribute("checked", "checked");
+        buildPortList();
+    }
+
+    function step2() {
+        document.getElementById("tab-1").removeAttribute("checked");
+        document.getElementById("tab-2").setAttribute("checked", "checked");
+        getProjectList()
+    }
+
+    function installMicroPython() {
+        document.getElementById("stage1").classList.add("hidden");
+        document.getElementById("stage1-success").classList.remove("hidden");
+        pywebview.api.installMP(path).then(function (msg) {
+            if (msg == 'success') {
+                document.getElementById("stage1-success-spinner").classList.add("load-complete");
+                document.getElementById("stage1-success-spinner").childNodes[1].style.display = "block"
+                document.getElementById("stage1-success-text").classList.remove("hidden");
+                setTimeout(function () {
+                    document.getElementById("tab-1").removeAttribute("checked");
+                    document.getElementById("tab-2").setAttribute("checked", "checked");
+                }, 800);
+                setTimeout(function () {
+                    buildPortList();
+                }, 1400);
+            } else {
+                document.getElementById("stage1").classList.remove("hidden");
+                document.getElementById("stage1-success").classList.add("hidden");
+                setTimeout(function () {
+                    document.getElementById('modal_2').checked = true;
+                    document.getElementById('modal_2_errormsg').innerHTML = msg
+                }, 100)
+            }
+        });
+    }
+
+    function openFileDialog() {
+        pywebview.api.openDialog().then(opened)
+    }
+
+    window.addEventListener('pywebviewready', function () {
+        document.getElementById("ports").addEventListener("change", function () {
+            document.getElementById("installCodeButton").removeAttribute("disabled");
+        });
+    })
+</script>
+</body>
+
+</html>
