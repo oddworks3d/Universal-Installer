@@ -2,15 +2,15 @@
   "projects": [
     {
       "name": "Portal Gun",
-      "url": "https://github.com/oddworks3d/Portal-Gun/blob/main/main.py?raw=true"
+      "url": "https://raw.githubusercontent.com/oddworks3d/Portal-Gun/master/main.py"
     },
     {
       "name": "Plasma Rifle",
-      "url": "https://github.com/oddworks3d/Plasma-Rifle/blob/main/main.py?raw=true"
+      "url": "https://raw.githubusercontent.com/oddworks3d/Plasma-Rifle/master/main.py"
     },
     {
       "name": "Plasma Cutter",
-      "url": "https://github.com/oddworks3d/Plasma-Cutter/blob/main/main.py?raw=true"
+      "url": "https://raw.githubusercontent.com/oddworks3d/Plasma-Cutter/master/main.py"
     }
   ]
 }
