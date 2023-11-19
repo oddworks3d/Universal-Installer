@@ -8,7 +8,6 @@ import pyboard
 import serial
 import webview
 import requests
-import json
 
 
 default_page = 'render.html'
@@ -77,7 +76,7 @@ class Api():
         try:
             print("download file")
             response = requests.get(config["projects"][int(project)]['url'])
-            print(response.content);
+            print(config["projects"][int(project)]['url']);
         except Exception as e:
             print(e)
             return str(e)
@@ -86,6 +85,13 @@ class Api():
             print("connection made");
             pyb.enter_raw_repl()
             print("entered repl");
+            # Delete all contents
+            if pyb.fs_exists("config"):
+                pyb.fs_rm("config")
+            if pyb.fs_exists("main.py"):
+                pyb.fs_rm("main.py")
+            if pyb.fs_exists("ssd1306.py"):
+                pyb.fs_rm("ssd1306.py")
             pyb.fs_put_direct(response.content, "main.py")
             print("copied");
             pyb.exit_raw_repl()
@@ -97,6 +103,6 @@ class Api():
 
 
 api = Api()
-window = webview.create_window('Universal Code Installer', url=f"file://{os.getcwd()}/{default_page}", js_api=api, width=450, height=350,
+window = webview.create_window('Universal Code Installer', "render.html", js_api=api, width=450, height=350,
                                resizable=False)
 webview.start()

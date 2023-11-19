@@ -1,0 +1,1 @@
+python -m PyInstaller --add-data render.html;. --add-binary m.uf2;. --add-data picnic.css;. --add-data style.css;. --distpath ./Releases/Windows-Build --icon=icon.ico --onefile --noconsole installer.py
