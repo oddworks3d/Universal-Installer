@@ -10,7 +10,17 @@ import webview
 import requests
 
 
-default_page = 'render.html'
+mainPage = "render.html"
+if sys.platform.startswith('win'):
+    default_page = mainPage
+elif sys.platform.startswith('linux') or sys.platform.startswith('cygwin'):
+    default_page = mainPage
+elif sys.platform.startswith('darwin'):
+    default_page = f"file://{os.getcwd()}/{mainPage}"
+else:
+    raise EnvironmentError('Unsupported platform')
+
+
 
 
 
@@ -103,6 +113,6 @@ class Api():
 
 
 api = Api()
-window = webview.create_window('Universal Code Installer', "render.html", js_api=api, width=450, height=350,
+window = webview.create_window('Universal Code Installer', url=default_page, js_api=api, width=450, height=350,
                                resizable=False)
 webview.start()
