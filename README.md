@@ -16,12 +16,19 @@ After downloading and unzipping your selected version of the installer, and acce
 
 Run the installer and you'll be greeted with this:
 
-![alt text](https://github.com/oddworks3d/Universal-Installer/blob/48f0ab8d143c9523bcb4724efd9da35fe8e16f96/step1.png?raw=true)
+![Screenshot 2024-03-06 at 2 38 05 pm](https://github.com/oddworks3d/Universal-Installer/assets/46923688/5492b070-4161-43c0-b2c9-70f064c428e4)
+
 *Before continuing, ensure your Pi Pico is in USB Mass Storage mode by holding down the BOOTSEL button while plugging the pico in to your computer.*
 
 
 
-Click `Select Pi Pico Directory` and search your filesystem for the mounted drive that is your Pi Pico.
+Select the project you want to install by clicking the card
+
+Then click MicroPython
+
+<img width="670" alt="Screenshot 2024-03-06 at 2 45 28 pm" src="https://github.com/oddworks3d/Universal-Installer/assets/46923688/2aa064c4-b3c6-47ab-9525-92d9c1b27d6e">
+
+Then simply choose your Pi Pico
 
 >On mac it will look something like:
 >```/Volumes/RPI-RP2```
@@ -32,19 +39,13 @@ Click `Select Pi Pico Directory` and search your filesystem for the mounted driv
 After selecting your Pi Pico, hit `Install MicroPython` to begin installing MicroPython on your Pico.
 
 
-## Choose Project
-After flashing MicroPython (or choosing to skip) you'll move on to step 2:
-![alt text](https://github.com/oddworks3d/Universal-Installer/blob/48f0ab8d143c9523bcb4724efd9da35fe8e16f96/step2.png?raw=true)
-Select which oddworks project you want to install from the above dropdown.
+## Install Project
+After flashing MicroPython or if MicroPython is already installed, Click the Install Project button.
 
-To view all projects head [Here](https://github.com/oddworks3d)
-
-## Install The Code
-
-Next you'll move onto step 3:
-
-![alt text](https://github.com/oddworks3d/Universal-Installer/blob/48f0ab8d143c9523bcb4724efd9da35fe8e16f96/step3.png?raw=true)
 *Before continuing ensure your Pi Pico is **NOT** in USB Mass Storage mode and that it is connected to your computer*
+
+<img width="670" alt="Screenshot 2024-03-06 at 2 44 27 pm" src="https://github.com/oddworks3d/Universal-Installer/assets/46923688/14f3fa22-b2d1-4341-b070-7ce93951fc6c">
+
 
 From the dropdown, select your connected Pi Pico which will look different depending on what devices are connected and if you are on windows or MacOS.
 
