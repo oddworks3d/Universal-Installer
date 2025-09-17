@@ -4,25 +4,25 @@
       "name": "Portal Gun",
       "url": "https://raw.githubusercontent.com/oddworks3d/Portal-Gun/master/main.py",
       "image-url": "https://raw.githubusercontent.com/oddworks3d/Universal-Installer/master/Images/Portal-Gun.jpeg",
-      "desc": "Portal Gun<br/>This model features: <ul><li>LED lighting!</li><li>Moving arms!</li><li>2 colour modes!</li><li>Firing lighting!</li></ul>"
+      "desc": "This model features: <ul><li>LED lighting!</li><li>Moving arms!</li><li>2 colour modes!</li><li>Firing lighting!</li></ul>"
     },
     {
       "name": "Plasma Rifle",
       "url": "https://raw.githubusercontent.com/oddworks3d/Plasma-Rifle/master/main.py",
       "image-url":"https://raw.githubusercontent.com/oddworks3d/Universal-Installer/master/Images/Plasma-Rifle.jpeg",
-      "desc": "Plasma Rifle"
+      "desc": "This model features: <ul><li>LED lighting!</li><li>Trigger!</li><li>Cooling button!</li><li>LED Heat gauge!</li><li>Flashing fire effect!</li><li>Moving Power Core!</li></ul>"
     },
     {
       "name": "Plasma Cutter",
       "url": "https://raw.githubusercontent.com/oddworks3d/Plasma-Cutter/master/main.py",
       "image-url":"https://raw.githubusercontent.com/oddworks3d/Universal-Installer/master/Images/Plasma-Cutter.jpeg",
-      "desc": "Plasma Cutter"
+      "desc": "This model features: <ul><li>2 stage trigger!</li><li>Flashing LED lighting!</li><li>Reloading ammo!</li><li>2 firing modes!</li></ul>"
     },
     {
       "name":"Halo Carbine",
       "url":"https://raw.githubusercontent.com/oddworks3d/Halo-Carbine/master/main.py",
       "image-url":"https://raw.githubusercontent.com/oddworks3d/Universal-Installer/master/Images/Halo-Carbine.jpeg",
-      "desc": "Halo Carbine. Featuring moving trigger, removable mag, bolt together construction and more.."
+      "desc": "This model features: <ul><li>Trigger!</li><li>Reloading ammo!</li><li>Ammo counter mag!</li><li>Recoiling function!</li><li>LED lighting!</li></ul>"
     }
   ]
 }
