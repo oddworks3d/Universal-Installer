@@ -3,22 +3,26 @@
     {
       "name": "Portal Gun",
       "url": "https://raw.githubusercontent.com/oddworks3d/Portal-Gun/master/main.py",
-      "image-url": "https://raw.githubusercontent.com/oddworks3d/Universal-Installer/master/Images/Portal-Gun.jpeg"
+      "image-url": "https://raw.githubusercontent.com/oddworks3d/Universal-Installer/master/Images/Portal-Gun.jpeg",
+      "desc": "Portal Gun"
     },
     {
       "name": "Plasma Rifle",
       "url": "https://raw.githubusercontent.com/oddworks3d/Plasma-Rifle/master/main.py",
-      "image-url":"https://raw.githubusercontent.com/oddworks3d/Universal-Installer/master/Images/Plasma-Rifle.jpeg"
+      "image-url":"https://raw.githubusercontent.com/oddworks3d/Universal-Installer/master/Images/Plasma-Rifle.jpeg",
+      "desc": "Plasma Rifle"
     },
     {
       "name": "Plasma Cutter",
       "url": "https://raw.githubusercontent.com/oddworks3d/Plasma-Cutter/master/main.py",
-      "image-url":"https://raw.githubusercontent.com/oddworks3d/Universal-Installer/master/Images/Plasma-Cutter.jpeg"
+      "image-url":"https://raw.githubusercontent.com/oddworks3d/Universal-Installer/master/Images/Plasma-Cutter.jpeg",
+      "desc": "Plasma Cutter"
     },
     {
       "name":"Halo Carbine",
       "url":"https://raw.githubusercontent.com/oddworks3d/Halo-Carbine/master/main.py",
-      "image-url":"https://raw.githubusercontent.com/oddworks3d/Universal-Installer/master/Images/Halo-Carbine.jpeg"
+      "image-url":"https://raw.githubusercontent.com/oddworks3d/Universal-Installer/master/Images/Halo-Carbine.jpeg",
+      "desc": "Halo Carbine. Featuring moving trigger, removable mag, bolt together construction and more.."
     }
   ]
 }
