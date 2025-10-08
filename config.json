@@ -23,6 +23,12 @@
       "url":"https://raw.githubusercontent.com/oddworks3d/Halo-Carbine/master/main.py",
       "image-url":"https://raw.githubusercontent.com/oddworks3d/Universal-Installer/master/Images/Halo-Carbine.jpeg",
       "desc": "This model features: <ul><li>Trigger!</li><li>Reloading ammo!</li><li>Ammo counter mag!</li><li>Recoiling function!</li><li>LED lighting!</li></ul>"
+    },
+    {
+      "name":"Plasma Pistol",
+      "url":"https://raw.githubusercontent.com/oddworks3d/Plasma-Pistol/master/main.py",
+      "image-url":"https://raw.githubusercontent.com/oddworks3d/Universal-Installer/master/Images/Plasma-Pistol.jpeg",
+      "desc": "This model features: <ul><li>Trigger!</li><li>Reloading ammo!</li><li>Ammo counter mag!</li><li>Recoiling function!</li><li>LED lighting!</li></ul>"
     }
   ]
 }
