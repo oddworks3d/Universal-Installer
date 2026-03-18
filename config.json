@@ -29,6 +29,17 @@
       "url":"https://raw.githubusercontent.com/oddworks3d/Plasma-Pistol/master/main.py",
       "image-url":"https://raw.githubusercontent.com/oddworks3d/Universal-Installer/master/Images/Plasma-Pistol.jpeg",
       "desc": "This model features: <ul><li>Trigger!</li><li>Reloading ammo!</li><li>Ammo counter mag!</li><li>Recoiling function!</li><li>LED lighting!</li></ul>"
+    },
+    {
+      "name": "Burst Rifle",
+      "url": "https://github.com/oddworks3d/Aliens-Burst-Rifle/",
+      "imageUrl": "https://raw.githubusercontent.com/oddworks3d/Universal-Installer/master/Images/Aliens-Burst-Rifle.jpeg",
+     "desc": "Featuring sound effects,  an ammo counter that counts down and double triggers! <br><br><i>(This project is no longer using MicroPython and is instead built and compiled to run natively on Pico and Pico 2 using Rust. 🦀)</i>",
+      "sources": {
+        "Pico": "https://github.com/oddworks3d/Aliens-Burst-Rifle/releases/download/v1.0.0/burst-rifle-rp2040.uf2",
+        "Pico 2": "https://github.com/oddworks3d/Aliens-Burst-Rifle/releases/download/v1.0.0/burst-rifle-rp2350.uf2"
+      },
+      "type":"uf2"
     }
   ]
 }
